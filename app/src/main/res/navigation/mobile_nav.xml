@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_nav"
+    app:startDestination="@id/searchProduct">
+
+    <fragment
+        android:id="@+id/searchProduct"
+        android:name="com.devarthur4718.mvp.ui.products.SearchProduct"
+        android:label="search_product_fragment"
+        tools:layout="@layout/search_product_fragment" />
+</navigation>
