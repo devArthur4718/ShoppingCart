@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.devarthur4718.mvp.R
 
-class HomeFragment : Fragment() {
+class SearchProductFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var searchProductViewModel: SearchProductViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        searchProductViewModel =
+            ViewModelProvider(this).get(SearchProductViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_search)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        searchProductViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

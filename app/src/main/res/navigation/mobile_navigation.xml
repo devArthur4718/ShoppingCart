@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_products">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.devarthur4718.mvp.ui.core.home.HomeFragment"
+        android:id="@+id/nav_products"
+        android:name="com.devarthur4718.mvp.ui.core.home.SearchProductFragment"
         android:label="@string/menu_search_products"
         tools:layout="@layout/fragment_home">
 
@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_home_second">
         <action
             android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
-            app:destination="@id/nav_home" />
+            app:destination="@id/nav_products" />
 
         <argument
             android:name="myArg"

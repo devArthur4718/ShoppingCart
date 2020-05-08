@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.devarthur4718.mvp.R
+import com.devarthur4718.mvp.ui.base.BaseFragment
 
-class GalleryFragment : Fragment() {
+class GalleryFragment : BaseFragment() {
 
     private lateinit var galleryViewModel: GalleryViewModel
 
@@ -27,5 +28,11 @@ class GalleryFragment : Fragment() {
             textView.text = it
         })
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mainViewModel.toogleSearchActionVisibility(false)
+
     }
 }
