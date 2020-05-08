@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">mvp</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="psw" >Contraseña</string>
+    <string name="aplication_name">Carrito de compra</string>
+    <string name="aplication_icon">Icono de la aplicación</string>
+    <string name="acess">" iniciar sesión"</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="recover_psw">Recuperar contraseña</string>
+    <string name="title_activity_core_nav_drawer">CoreNavDrawerActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_search_products">Buscar productos</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="home_second">Home Second</string>
+    <string name="title_activity_core_nav">CoreNav</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="search_title">Buscar...</string>
+    <string name="search_hint">Ingrese un nombre de producto</string>
+</resources>
