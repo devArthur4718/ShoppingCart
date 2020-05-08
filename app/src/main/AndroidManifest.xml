@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.devarthur4718.mvp">
+    package="com.devarthur4718.mvp" >
 
     <application
         android:allowBackup="true"
@@ -8,13 +8,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
+
+
+
+        <activity android:name=".ui.core.search.SearchResultsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+        </activity>
+
+        <meta-data
+            android:name="android.app.searchable"
+            android:resource="@xml/searchable" />
+
         <activity
-            android:name=".ui.core.CoreNavDrawerActivity"
-            android:label="@string/title_activity_core_nav_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.core.CoreActivity" />
-        <activity android:name=".MainActivity">
+            android:name=".ui.core.CoreNav"
+            android:label="@string/title_activity_core_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

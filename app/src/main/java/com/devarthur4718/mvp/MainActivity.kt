@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.devarthur4718.mvp.databinding.ActivityMainBinding
-import com.devarthur4718.mvp.ui.core.CoreNavDrawerActivity
+import com.devarthur4718.mvp.ui.core.CoreNav
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnLogin.setOnClickListener {
-            var intent = Intent(this, CoreNavDrawerActivity::class.java)
+            var intent = Intent(this, CoreNav::class.java)
             finish()
             startActivity(intent)
         }

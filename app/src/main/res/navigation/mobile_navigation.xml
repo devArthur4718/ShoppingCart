@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.devarthur4718.mvp.ui.core.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:name="com.devarthur4718.mvp.ui.core.home.HomeFragment"
+        android:label="@string/menu_search_products"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_home_second"
-        android:name="com.devarthur4718.mvp.ui.core.ui.home.HomeSecondFragment"
+        android:name="com.devarthur4718.mvp.ui.core.home.HomeSecondFragment"
         android:label="@string/home_second"
         tools:layout="@layout/fragment_home_second">
         <action
@@ -31,13 +31,13 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.devarthur4718.mvp.ui.core.ui.gallery.GalleryFragment"
+        android:name="com.devarthur4718.mvp.ui.core.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.devarthur4718.mvp.ui.core.ui.slideshow.SlideshowFragment"
+        android:name="com.devarthur4718.mvp.ui.core.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

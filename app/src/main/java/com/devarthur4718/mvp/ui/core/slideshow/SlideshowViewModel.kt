@@ -1,4 +1,4 @@
-package com.devarthur4718.mvp.ui.core.ui.slideshow
+package com.devarthur4718.mvp.ui.core.slideshow
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.devarthur4718.mvp.ui.core.ui.home
+package com.devarthur4718.mvp.ui.core.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
