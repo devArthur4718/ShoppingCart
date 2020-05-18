@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">mvp</string>
+    <string name="app_name">Pallevar</string>
     <string name="username">Nombre de usuario</string>
     <string name="psw" >Contraseña</string>
     <string name="aplication_name">Carrito de compra</string>
@@ -10,6 +10,7 @@
     <string name="recover_psw">Recuperar contraseña</string>
     <string name="title_activity_core_nav_drawer">CoreNavDrawerActivity</string>
     <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_desc">Navigation header</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="action_settings">Settings</string>
     <string name="menu_search_products">Buscar productos</string>
