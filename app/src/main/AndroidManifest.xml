@@ -34,7 +34,7 @@
             android:resource="@xml/searchable" />
 
         <activity
-            android:name=".ui.core.CoreNav"
+            android:name=".ui.core.CoreActivity"
             android:label="@string/title_activity_core_nav"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.login.LoginActivity">
