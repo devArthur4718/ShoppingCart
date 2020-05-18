@@ -81,13 +81,5 @@ class CoreActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    companion object{
 
-        fun getIntent(context : Context) : Intent {
-            return Intent(context, CoreActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-
-            }
-        }
-    }
 }

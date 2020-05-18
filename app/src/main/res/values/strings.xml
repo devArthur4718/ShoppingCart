@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pallevar</string>
-    <string name="username">Username</string>
+    <string name="username">E-mail</string>
     <string name="psw">Password</string>
     <string name="aplication_name">Shopping Cart</string>
     <string name="aplication_icon">Aplication Icon</string>
@@ -23,4 +23,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="search_title">Search...</string>
     <string name="search_hint">Type a product name...</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="close_registration">Close Registration</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show Password</string>
 </resources>
