@@ -12,6 +12,7 @@ import com.devarthur4718.mvp.extension.checkInternetAndCall
 import com.devarthur4718.mvp.extension.clearError
 import com.devarthur4718.mvp.ui.base.BaseActivity
 import com.devarthur4718.mvp.ui.core.CoreActivity
+import com.devarthur4718.mvp.ui.recover.RecoverAccountActivity
 import com.devarthur4718.mvp.ui.register.RegisterActivity
 
 
@@ -71,6 +72,15 @@ class LoginActivity : BaseActivity() {
         binding.tvCreateAccount.setOnClickListener {
             navigateToCreateAccount()
         }
+
+        binding.tvRecPw.setOnClickListener {
+            navigateToRecoverAccount()
+        }
+    }
+
+    private fun navigateToRecoverAccount() {
+        val intent = Intent(this, RecoverAccountActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToCreateAccount() {

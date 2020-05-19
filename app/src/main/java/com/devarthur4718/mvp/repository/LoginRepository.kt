@@ -25,4 +25,25 @@ class LoginRepository {
     }
 
     fun getCurrentUserUID() : String = auth.uid ?: ""
+
+    var recoverStatus : Boolean? = null
+    fun recoverPassword(email : String): Boolean? {
+
+        auth.sendPasswordResetEmail(email).addOnCompleteListener {task ->
+            if(task.isSuccessful){
+                recoverStatus = true
+                return@addOnCompleteListener
+            }else{
+                recoverStatus = false
+                return@addOnCompleteListener
+            }
+
+        }.addOnFailureListener {
+            recoverStatus = false
+            return@addOnFailureListener
+        }
+
+        return recoverStatus
+    }
+
 }

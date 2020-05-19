@@ -36,4 +36,7 @@
     <string name="blank_name">Nombre en blanco</string>
     <string name="registration_failed">¡Registro fallido! Revise su correo electrónico y contraseña</string>
     <string name="registration_success">¡Registro terminado! Use sus credenciales para acceder a su cuenta</string>
+    <string name="reset_password_details">Recibirá detalles de restablecimiento de contraseña en su correo electrónico</string>
+    <string name="send">Enviar</string>
+    <string name="recovery_detail_sent">Enviado a correo electrónico registrado</string>
 </resources>
