@@ -22,4 +22,18 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="search_title">Buscar...</string>
     <string name="search_hint">Ingrese un nombre de producto</string>
+    <string name="create_an_account">Crea una cuenta</string>
+    <string name="close_registration">Cerrar registro</string>
+    <string name="name">Nombre</string>
+    <string name="password">Contraseña</string>
+    <string name="show_password">mostrar contraseña</string>
+    <string name="register_with_email">Regístrese con su correo electrónico</string>
+    <string name="email_in_use_error">Este correo electrónico já está em uso!</string>
+    <string name="invalid_email">Email inválido</string>
+    <string name="blank_email">No puede estar en blanco</string>
+    <string name="password_min">Min 6 caracteres</string>
+    <string name="blank_pw">Contraseña en blanco</string>
+    <string name="blank_name">Nombre en blanco</string>
+    <string name="registration_failed">¡Registro fallido! Revise su correo electrónico y contraseña</string>
+    <string name="registration_success">¡Registro terminado! Use sus credenciales para acceder a su cuenta</string>
 </resources>

@@ -30,9 +30,13 @@
     <string name="show_password">Show Password</string>
     <string name="register_with_email">Register with your E-mail</string>
     <string name="email_in_use_error">Este e-mail já está em uso!</string>
-    <string name="invalid_email">Invalid E-mail</string>
-    <string name="blank_email">Cannot be blank.</string>
-    <string name="password_min">Min 6 chars.</string>
-    <string name="blank_pw">Blank password.</string>
+    <string name="invalid_email">Invalid Email</string>
+    <string name="blank_email">Cannot be blank</string>
+    <string name="password_min">Min 6 chars</string>
+    <string name="blank_pw">Blank password</string>
     <string name="blank_name">Blank name</string>
+    <string name="registration_failed">Registration Failed! Check your e-mail and password</string>
+    <string name="registration_success">Registration finished! Use your credentials to access your account</string>
+    <string name="reset_password_details">You will receive password reset details in your email</string>
+    <string name="send">Send</string>
 </resources>

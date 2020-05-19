@@ -1,6 +1,6 @@
 package com.devarthur4718.mvp.ui.register
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -64,7 +64,6 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun setObservables() {
-
         viewmodel.onRegisterSuccess.observe(this, Observer { onRegistrationCallback(it) })
 
     }
@@ -72,10 +71,10 @@ class RegisterActivity : BaseActivity() {
     private fun onRegistrationCallback(status: Boolean?) {
         status?.let { status ->
             if(status){
-                Toast.makeText(this, "Registration finished! Use your credentials to access your account", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.registration_success), Toast.LENGTH_SHORT).show()
                 finish()
             }else{
-                Toast.makeText(this, "Unknow Error while registering, try again later...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show()
             }
         }
 
