@@ -105,5 +105,8 @@ dependencies {
     implementation 'org.kodein.di:kodein-di-generic-jvm:5.2.0'
     implementation 'org.kodein.di:kodein-di-framework-android-x:5.2.0'
 
+    //Dialogs
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+
 
 }
