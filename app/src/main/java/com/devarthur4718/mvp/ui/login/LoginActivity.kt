@@ -15,6 +15,7 @@ import com.devarthur4718.mvp.ui.base.BaseActivity
 import com.devarthur4718.mvp.ui.core.CoreActivity
 import com.devarthur4718.mvp.ui.recover.RecoverAccountActivity
 import com.devarthur4718.mvp.ui.register.RegisterActivity
+import com.devarthur4718.mvp.ui.register.RegisterSeller
 
 
 class LoginActivity : BaseActivity() {
@@ -85,9 +86,6 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun navigateToCreateAccount() {
-//        val intent = Intent(this, RegisterActivity::class.java)
-//        startActivity(intent)
-
         MaterialDialog(this).show {
             title(text = getString(R.string.title_create))
             message(text = getString(R.string.hint_create))
@@ -95,12 +93,23 @@ class LoginActivity : BaseActivity() {
             negativeButton(text = getString(R.string.seller_text))
             positiveButton {
                 //Open Buyer text
+                openRegisterActivity()
             }
             negativeButton {
                 //Open Seller text.
+                openSellerActivity()
             }
         }
+    }
 
+    private fun openSellerActivity() {
+        val intent = Intent(this, RegisterSeller::class.java)
+        startActivity(intent)
+    }
+
+    private fun openRegisterActivity() {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
 
     private fun performEmailPasswordLogin(email : String, password : String) {

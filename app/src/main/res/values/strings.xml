@@ -45,4 +45,10 @@
     <string name="title_create">Create new account</string>
     <string name="buyer_text">Buyer</string>
     <string name="seller_text">Seller</string>
+    <string name="create_a_new_seller_account">Create a new seller account</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="step_1_of_3">Step 1 of 3</string>
+    <string name="next">Next</string>
+    <string name="business_contact">Business contact</string>
+    <string name="step_2_of_3">Step 2 of 3</string>
 </resources>
