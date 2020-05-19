@@ -7,6 +7,7 @@ import com.devarthur4718.mvp.repository.LoginRepository
 
 class LoginViewModel  : ViewModel(){
 
+    //TODO : Remove Loose Coupling
     var authRepository = LoginRepository()
 
     private val _userUID = MutableLiveData<String>()

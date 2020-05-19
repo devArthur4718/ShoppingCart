@@ -13,7 +13,9 @@ open class BaseActivity  : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainViewModel = ViewModelProvider(this)[CoreViewModel::class.java]
+
     }
+
 
     open fun onStartLoading() {
         loadingDialog.show()

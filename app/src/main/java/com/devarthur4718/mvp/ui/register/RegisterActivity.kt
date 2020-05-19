@@ -2,27 +2,84 @@ package com.devarthur4718.mvp.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityRegisterBinding
+import com.devarthur4718.mvp.extension.*
+import com.devarthur4718.mvp.ui.base.BaseActivity
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseActivity() {
 
+    //TODO : Remove Loose Coupling
     private lateinit var binding : ActivityRegisterBinding
+    private lateinit var viewmodel : RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
-        initViews()
+        viewmodel = ViewModelProvider(this)[RegisterViewModel::class.java]
         setObservables()
+        initUI()
+    }
+
+    private fun initUI() {
+        binding.ivCloseRegistration.setOnClickListener { finish() }
+
+        binding.btnRegister.setOnClickListener {
+            //Todo validate fields
+            binding.inputName.editText?.clearError()
+            binding.inputNewEmail.editText?.clearError()
+            binding.inputNewPassword.editText?.clearError()
+
+            if(binding.inputName.editText!!.isNullOrEmpty()){
+                binding.inputName.editText?.setError(getString(R.string.blank_name))
+                return@setOnClickListener
+            }
+            else if(!binding?.inputNewEmail?.editText?.isEmailValid()!!){
+                binding.inputNewEmail.editText?.setError(getString(R.string.invalid_email))
+                return@setOnClickListener
+            } else if(binding?.inputNewEmail?.editText?.isNullOrEmpty()!!){
+                binding.inputNewEmail.editText?.setError(getString(R.string.blank_email))
+                return@setOnClickListener
+            }else if (!binding.inputNewPassword.editText?.isPasswordValid()!!) {
+                binding.inputNewPassword.editText?.setError(getString(R.string.password_min))
+                return@setOnClickListener
+            } else if (binding.inputNewPassword?.editText?.isNullOrEmpty()!!) {
+                binding.inputNewPassword?.editText?.setError(getString(R.string.blank_pw))
+                return@setOnClickListener
+            }
+
+            checkInternetAndCall {
+                viewmodel.performRegisterWithEmail(
+                    binding.inputName.editText?.text.toString(),
+                    binding.inputNewEmail.editText?.text.toString(),
+                    binding.inputNewPassword.editText?.text.toString()
+                )
+            }
+
+        }
     }
 
     private fun setObservables() {
 
-    }
-
-    private fun initViews() {
-        binding.ivCloseRegistration.setOnClickListener { finish() }
+        viewmodel.onRegisterSuccess.observe(this, Observer { onRegistrationCallback(it) })
 
     }
+
+    private fun onRegistrationCallback(status: Boolean?) {
+        status?.let { status ->
+            if(status){
+                Toast.makeText(this, "Registration finished! Use your credentials to access your account", Toast.LENGTH_SHORT).show()
+                finish()
+            }else{
+                Toast.makeText(this, "Unknow Error while registering, try again later...", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    }
+
+
 }
