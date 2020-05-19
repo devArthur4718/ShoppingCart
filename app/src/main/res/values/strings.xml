@@ -40,4 +40,9 @@
     <string name="reset_password_details">You will receive password reset details in your email</string>
     <string name="send">Send</string>
     <string name="recovery_detail_sent">Sent to registered email</string>
+    <string name="buyer">Buyer </string>
+    <string name="hint_create">Please, select the type of account that you want to create.</string>
+    <string name="title_create">Create new account</string>
+    <string name="buyer_text">Buyer</string>
+    <string name="seller_text">Seller</string>
 </resources>

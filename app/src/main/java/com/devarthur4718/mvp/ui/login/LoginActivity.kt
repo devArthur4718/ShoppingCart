@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.afollestad.materialdialogs.MaterialDialog
 import com.devarthur4718.mvp.BuildConfig
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.LoginActivityBinding
@@ -84,8 +85,22 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun navigateToCreateAccount() {
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this, RegisterActivity::class.java)
+//        startActivity(intent)
+
+        MaterialDialog(this).show {
+            title(text = getString(R.string.title_create))
+            message(text = getString(R.string.hint_create))
+            positiveButton(text = getString(R.string.buyer_text))
+            negativeButton(text = getString(R.string.seller_text))
+            positiveButton {
+                //Open Buyer text
+            }
+            negativeButton {
+                //Open Seller text.
+            }
+        }
+
     }
 
     private fun performEmailPasswordLogin(email : String, password : String) {
