@@ -1,5 +1,6 @@
 package com.devarthur4718.mvp.ui.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -18,7 +19,8 @@ class RegisterSeller : AppCompatActivity() {
 
     private fun initAction() {
         binding.buttonNext.setOnClickListener {
-
+            val intent = Intent(this, BusinessContactActivity::class.java)
+            startActivity(intent)
         }
 
     }

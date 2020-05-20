@@ -51,4 +51,10 @@
     <string name="next">Next</string>
     <string name="business_contact">Business contact</string>
     <string name="step_2_of_3">Step 2 of 3</string>
+    <string name="close_screen">close screen</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="nickname">Nickname</string>
+    <string name="business_name">Bussiness Name.</string>
+    <string name="business_address">BussinessAdrress</string>
+    <string name="step_3_of_3">Step 3 of 3</string>
 </resources>
