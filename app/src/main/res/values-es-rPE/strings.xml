@@ -56,4 +56,6 @@
     <string name="business_address">Dirección de Negocios</string>
     <string name="step_3_of_3">Paso 3 de 3</string>
     <string name="phone">Teléfono</string>
+    <string name="payment_methods">Formas de Pago</string>
+    <string name="finish">Terminar</string>
 </resources>

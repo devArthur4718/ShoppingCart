@@ -23,5 +23,9 @@ class RegisterSeller : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.imageView3.setOnClickListener {
+            finish()
+        }
+
     }
 }
