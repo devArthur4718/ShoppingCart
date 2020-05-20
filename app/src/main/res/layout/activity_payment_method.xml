@@ -47,40 +47,45 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkYape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="4dp"
             android:text="@string/yape"
-            app:layout_constraintEnd_toStartOf="@+id/editText"
+            android:onClick="onItemChecked"
+            android:checked="false"
+            app:layout_constraintEnd_toStartOf="@+id/edtPhoneYape"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edtPhoneYape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="8dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:text="@string/phone"
-            app:layout_constraintBaseline_toBaselineOf="@+id/checkBox3"
+            android:enabled="false"
+            app:layout_constraintBaseline_toBaselineOf="@+id/checkYape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/checkBox3" />
+            app:layout_constraintStart_toEndOf="@+id/checkYape" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="Tunki"
-            app:layout_constraintStart_toStartOf="@+id/checkBox3"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+            android:onClick="onItemChecked"
+            android:checked="false"
+            app:layout_constraintStart_toStartOf="@+id/checkYape"
+            app:layout_constraintTop_toBottomOf="@+id/checkYape" />
 
         <CheckBox
             android:id="@+id/checkBox5"
@@ -88,31 +93,35 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Plin"
+            android:checked="false"
+            android:onClick="onItemChecked"
             app:layout_constraintEnd_toEndOf="@+id/checkBox4"
             app:layout_constraintStart_toStartOf="@+id/checkBox4"
             app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edtTunki"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:text="@string/phone"
+            android:enabled="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/checkBox4"
-            app:layout_constraintEnd_toEndOf="@+id/editText"
-            app:layout_constraintStart_toStartOf="@+id/editText" />
+            app:layout_constraintEnd_toEndOf="@+id/edtPhoneYape"
+            app:layout_constraintStart_toStartOf="@+id/edtPhoneYape" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/edtPhonePlin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="phone"
             android:text="@string/phone"
+            android:enabled="false"
             app:layout_constraintBaseline_toBaselineOf="@+id/checkBox5"
-            app:layout_constraintEnd_toEndOf="@+id/editText2"
-            app:layout_constraintStart_toStartOf="@+id/editText2" />
+            app:layout_constraintEnd_toEndOf="@+id/edtTunki"
+            app:layout_constraintStart_toStartOf="@+id/edtTunki" />
 
         <Button
             android:id="@+id/btnFinish"
@@ -122,7 +131,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText3"
+            app:layout_constraintTop_toBottomOf="@+id/edtPhonePlin"
             app:layout_constraintVertical_bias="0.8" />
 
 

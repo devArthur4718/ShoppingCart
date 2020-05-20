@@ -3,6 +3,8 @@ package com.devarthur4718.mvp.ui.register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.CheckBox
 import androidx.databinding.DataBindingUtil
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityPaymentMethodBinding
@@ -27,6 +29,26 @@ class PaymentMethod : AppCompatActivity() {
             }
             startActivity(intent)
             finish()
+        }
+        binding.imageView3.setOnClickListener {
+            finish()
+        }
+    }
+
+    fun onItemChecked(view: View) {
+        if(view is CheckBox){
+            val checked = view.isChecked
+            when(view.id){
+                R.id.checkYape -> {
+                    binding.edtPhoneYape.isEnabled = checked
+                }
+                R.id.checkBox4 ->{
+                    binding.edtTunki.isEnabled = checked
+                }
+                R.id.checkBox5 -> {
+                    binding.edtPhonePlin.isEnabled = checked
+                }
+            }
         }
     }
 }
