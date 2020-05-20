@@ -51,14 +51,14 @@
     <string name="next">Next</string>
     <string name="business_contact">Business contact</string>
     <string name="step_2_of_3">Step 2 of 3</string>
-    <string name="close_screen">close screen</string>
+    <string name="close_screen" translatable="false">close screen</string>
     <string name="contact_name">Contact Name</string>
     <string name="nickname">Nickname</string>
-    <string name="business_name">Bussiness Name.</string>
-    <string name="business_address">BussinessAdrress</string>
+    <string name="business_name">Bussiness Name</string>
+    <string name="business_address">Bussiness Adrress</string>
     <string name="step_3_of_3">Step 3 of 3</string>
     <string name="phone">Phone</string>
-    <string name="yape">Yape</string>
-    <string name="finish">Finish</string>
+    <string name="yape" translatable="false">Yape</string>
+    <string name="finish" translatable="false">Finish</string>
 
 </resources>

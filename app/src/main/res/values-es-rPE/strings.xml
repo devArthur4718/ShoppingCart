@@ -39,4 +39,21 @@
     <string name="reset_password_details">Recibirá detalles de restablecimiento de contraseña en su correo electrónico</string>
     <string name="send">Enviar</string>
     <string name="recovery_detail_sent">Enviado a correo electrónico registrado</string>
+    <string name="buyer">Comprador</string>
+    <string name="hint_create">Por favor, seleccione el tipo de cuenta que desea crear.</string>
+    <string name="title_create">Crear una nueva cuenta</string>
+    <string name="buyer_text">Comprador</string>
+    <string name="seller_text">Vendedor</string>
+    <string name="create_a_new_seller_account">Crear una nueva cuenta de vendedor</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="step_1_of_3">Paso 1 de 3</string>
+    <string name="next">Próximo</string>
+    <string name="business_contact">Contacto de negocio</string>
+    <string name="step_2_of_3">Paso 2 de 3</string>
+    <string name="contact_name">Nombre de contacto</string>
+    <string name="nickname">Apodo</string>
+    <string name="business_name">Nombre del Negocio</string>
+    <string name="business_address">Dirección de Negocios</string>
+    <string name="step_3_of_3">Paso 3 de 3</string>
+    <string name="phone">Teléfono</string>
 </resources>
