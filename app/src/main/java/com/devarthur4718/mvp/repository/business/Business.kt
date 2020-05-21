@@ -6,12 +6,13 @@ import androidx.room.PrimaryKey
 const val CURRENT_BUSSINESS_ID = 0
 
 @Entity(tableName = "business_table")
-data class BusinessData(
-    val contactname : String,
-    val nickname : String,
-    val business_name : String,
-    val business_address : String,
-    val yapePhone : String
+data class Business(
+    var email: String? = null,
+    var contactname : String? = null,
+    var nickname : String? = null,
+    var business_name : String? = null,
+    var business_address : String? = null,
+    var yapePhone : String? = null
 ){
     @PrimaryKey(autoGenerate = false)
     var id : Int = CURRENT_BUSSINESS_ID

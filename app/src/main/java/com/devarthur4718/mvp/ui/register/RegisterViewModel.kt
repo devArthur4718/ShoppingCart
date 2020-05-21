@@ -1,21 +1,30 @@
 package com.devarthur4718.mvp.ui.register
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.devarthur4718.mvp.repository.LoginRepository
+import com.devarthur4718.mvp.repository.business.Business
+import com.devarthur4718.mvp.repository.business.BusinessRepository
+import com.devarthur4718.mvp.repository.business.BussinessDAO
+import com.devarthur4718.mvp.repository.database.ApplicationDatabase
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(application: Application) : AndroidViewModel(application) {
 
-    val authRepository = LoginRepository()
+    private val authRepository = LoginRepository()
 
     private val _loadingProgress = MutableLiveData<Boolean>()
     val loadingProgress: LiveData<Boolean> get() = _loadingProgress
 
     private val _onRegisterSuccess = MutableLiveData<Boolean>()
     val onRegisterSuccess: LiveData<Boolean> get() = _onRegisterSuccess
+
 
     fun performRegisterWithEmail(username : String , email : String, pw : String){
         _loadingProgress.value = true
