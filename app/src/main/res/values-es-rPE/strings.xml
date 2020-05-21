@@ -58,4 +58,7 @@
     <string name="phone">Teléfono</string>
     <string name="payment_methods">Formas de Pago</string>
     <string name="finish">Terminar</string>
+    <string name="pw_not_match">Las contraseñas no coinciden.</string>
+
+
 </resources>

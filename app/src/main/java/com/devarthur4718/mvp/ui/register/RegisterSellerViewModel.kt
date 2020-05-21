@@ -3,9 +3,7 @@ package com.devarthur4718.mvp.ui.register
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.devarthur4718.mvp.repository.LoginRepository
 import com.devarthur4718.mvp.repository.business.Business
 import com.devarthur4718.mvp.repository.business.BusinessRepository
 import com.devarthur4718.mvp.repository.database.ApplicationDatabase
@@ -17,9 +15,6 @@ class RegisterSellerViewModel(application: Application) : AndroidViewModel(appli
 
     private val businesRepository: BusinessRepository
     val currentBussinessData: LiveData<List<Business>>
-
-    private val _onDataSaved = MutableLiveData<Boolean>()
-    val onDataSaved: LiveData<Boolean> get() = _onDataSaved
 
     init {
         val businessDao = ApplicationDatabase.getDatabase(application).BussinessDAO()
