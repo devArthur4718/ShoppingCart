@@ -9,11 +9,16 @@ import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityBusinessContactBinding
 import com.devarthur4718.mvp.extension.clearError
 import com.devarthur4718.mvp.repository.business.Business
+import com.devarthur4718.mvp.ui.location.MapsActivity
 
 class BusinessContactActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityBusinessContactBinding
     private lateinit var viewmodel : RegisterSellerViewModel
+
+    companion object{
+        const val RQ_MAPS = 10
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +63,15 @@ class BusinessContactActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.SearchInMaps.setOnClickListener {
+            var intent = Intent(this, MapsActivity::class.java)
+            startActivityForResult(intent,RQ_MAPS)
+        }
+
 
     }
 
-
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 }

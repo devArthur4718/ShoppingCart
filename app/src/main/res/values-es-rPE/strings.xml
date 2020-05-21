@@ -59,6 +59,8 @@
     <string name="payment_methods">Formas de Pago</string>
     <string name="finish">Terminar</string>
     <string name="pw_not_match">Las contraseñas no coinciden.</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="search_in_map">Buscar en el mapa</string>
 
 
 </resources>
