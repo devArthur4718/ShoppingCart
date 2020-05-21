@@ -5,12 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.devarthur4718.mvp.BuildConfig
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityRegisterSellerBinding
-import com.devarthur4718.mvp.extension.clearError
-import com.devarthur4718.mvp.extension.isEmailValid
-import com.devarthur4718.mvp.extension.isNullOrEmpty
-import com.devarthur4718.mvp.extension.isPasswordValid
+import com.devarthur4718.mvp.extension.*
+import com.devarthur4718.mvp.mock.MockedData
 import com.devarthur4718.mvp.repository.business.Business
 
 class RegisterSeller : AppCompatActivity() {
@@ -22,6 +21,16 @@ class RegisterSeller : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register_seller)
         viewmodel = ViewModelProvider(this).get(RegisterSellerViewModel::class.java)
         initAction()
+        initData()
+
+    }
+
+    private fun initData() {
+        if(BuildConfig.DEBUG){
+            binding.inputNewEmail.setText(MockedData.EMAIL)
+            binding.inputNewPassword.setText(MockedData.PW)
+            binding.inputConfirmPasssword.setText(MockedData.CONFIRM_PW)
+        }
     }
 
     private fun initAction() {
@@ -71,6 +80,7 @@ class RegisterSeller : AppCompatActivity() {
         val intent = Intent(this, BusinessContactActivity::class.java)
         startActivity(intent)
     }
+
 
 
 }

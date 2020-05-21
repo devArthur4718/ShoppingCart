@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityBusinessContactBinding
 import com.devarthur4718.mvp.extension.clearError
+import com.devarthur4718.mvp.extension.getText
 import com.devarthur4718.mvp.repository.business.Business
 import com.devarthur4718.mvp.ui.location.MapsActivity
 
@@ -30,14 +31,14 @@ class BusinessContactActivity : AppCompatActivity() {
     private fun initViews() {
         binding.buttonNext.setOnClickListener {
             var data = Business().apply {
-                contactname = binding.inputContactName.editText?.text.toString()
-                nickname = binding.inputNickName.editText?.text.toString()
+                contactname = binding.inputContactName.getText()
+                nickname = binding.inputNickName.getText()
             }
 
-            binding.inputContactName.editText?.clearError()
-            binding.inputNickName.editText?.clearError()
-            binding.inputBusinessName.editText?.clearError()
-            binding.inputBussinessAddress.editText?.clearError()
+            binding.inputContactName.clearError()
+            binding.inputNickName.clearError()
+            binding.inputBusinessName.clearError()
+            binding.inputBussinessAddress.clearError()
 
             if(binding.inputContactName.editText?.text.isNullOrEmpty()){
                 binding.inputContactName.editText?.setError(getString(R.string.blank_name))
