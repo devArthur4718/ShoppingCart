@@ -5,18 +5,12 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import com.devarthur4718.mvp.repository.LoginRepository
-import com.devarthur4718.mvp.repository.business.Business
-import com.devarthur4718.mvp.repository.business.BusinessRepository
-import com.devarthur4718.mvp.repository.business.BussinessDAO
-import com.devarthur4718.mvp.repository.database.ApplicationDatabase
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class RegisterViewModel(application: Application) : AndroidViewModel(application) {
 
+    //TODO Add depency injection to centralize instances in a single file..
     private val authRepository = LoginRepository()
 
     private val _loadingProgress = MutableLiveData<Boolean>()

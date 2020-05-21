@@ -24,25 +24,25 @@ class BusinessContactActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.buttonNext.setOnClickListener {
-            var updateTeste = Business().apply {
+            var data = Business().apply {
                 contactname = binding.inputContactName.editText?.text.toString()
                 nickname = binding.inputNickName.editText?.text.toString()
                 email = null
             }
 
-            viewmodel.updateBussinessData(updateTeste)
+            //TODO : move validation to a base view model.
+            viewmodel.updateBussinessData(data)
 
-//            val intent = Intent(this,PaymentMethod::class.java)
-//            startActivity(intent)
+            val intent = Intent(this,PaymentMethod::class.java)
+            startActivity(intent)
         }
 
-        viewmodel.currentBussinessData.observe(this, Observer {
-            it.let {
-                it.first().nickname
-                it.first().contactname
-            }
-        })
+        binding.imageView3.setOnClickListener {
+            finish()
+        }
 
 
     }
+
+
 }

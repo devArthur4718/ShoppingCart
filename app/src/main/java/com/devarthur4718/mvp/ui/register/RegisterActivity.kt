@@ -30,11 +30,12 @@ class RegisterActivity : BaseActivity() {
         binding.ivCloseRegistration.setOnClickListener { finish() }
 
         binding.btnRegister.setOnClickListener {
-            //Todo validate fields
+
             binding.inputName.editText?.clearError()
             binding.inputNewEmail.editText?.clearError()
             binding.inputNewPassword.editText?.clearError()
 
+            //TODO : move validation to the view model
             if(binding.inputName.editText!!.isNullOrEmpty()){
                 binding.inputName.editText?.setError(getString(R.string.blank_name))
                 return@setOnClickListener
