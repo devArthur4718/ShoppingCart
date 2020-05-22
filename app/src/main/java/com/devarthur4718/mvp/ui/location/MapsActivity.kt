@@ -1,11 +1,19 @@
 package com.devarthur4718.mvp.ui.location
 
 import android.content.pm.PackageManager
+import android.location.Geocoder
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.devarthur4718.mvp.R
+import com.devarthur4718.mvp.mock.MockedData
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,9 +21,10 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import java.util.jar.Manifest
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+
 
     private lateinit var mMap: GoogleMap
     private val TAG = MapsActivity::class.java.simpleName
@@ -27,24 +36,51 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        init()
+
+
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+    private fun init() {
+        input_search.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH
+                    || actionId == EditorInfo.IME_ACTION_DONE
+                    || event?.action == KeyEvent.ACTION_DOWN
+                    || event?.action == KeyEvent.KEYCODE_ENTER){
+
+                    geoLocate()
+                }
+                return false
+            }
+        })
+
+        ib_gps.setOnClickListener {
+            getDeviceLocation()
+        }
+
+    }
+
+    private fun geoLocate() {
+
+        var search = input_search.text.toString()
+
+        var gc = Geocoder(this)
+        var address = gc.getFromLocationName(search, 1)
+
+        if(address.size > 0){
+            var currentAddress = address[0]
+            Log.d(TAG, "geolocate: found location : $address")
+//            Toast.makeText(this, "Location: $currentAddress", Toast.LENGTH_SHORT).show()
+            var location = LatLng(currentAddress.latitude, currentAddress.longitude)
+            moveCamera(location, DEFAULT_ZOOM, "")
+
+        }
+    }
+
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val peru = LatLng(-12.046374,-77.042793)
-//        mMap.addMarker(MarkerOptions().position(peru).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(peru))
         enableMyLocation()
     }
 
@@ -57,6 +93,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun enableMyLocation(){
         if(isPermissionGranted()){
             mMap.isMyLocationEnabled = true
+            getDeviceLocation()
 
         }else{
             ActivityCompat.requestPermissions(
@@ -65,6 +102,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 REQUEST_LOCATION_PERMISSION
             )
         }
+    }
+
+
+    private fun moveCamera(location: LatLng, zoom : Float, title : String) {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoom))
+        val markerOptions = MarkerOptions()
+                                .position(location)
+                                .title(title)
+        mMap.addMarker(markerOptions)
+    }
+
+    private fun getDeviceLocation() {
+        var locationClient = LocationServices.getFusedLocationProviderClient(this)
+        locationClient.lastLocation.addOnCompleteListener {task ->
+            if(task.isSuccessful){
+                var currentLocation = task.getResult()
+                var position = LatLng(currentLocation!!.latitude,currentLocation!!.longitude)
+                moveCamera(position, DEFAULT_ZOOM, "")
+            }else{
+                //do something
+            }
+        }
+
     }
 
     override fun onRequestPermissionsResult(
@@ -77,5 +137,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 enableMyLocation()
             }
         }
+    }
+
+    companion object{
+        const val DEFAULT_ZOOM = 15F
     }
 }

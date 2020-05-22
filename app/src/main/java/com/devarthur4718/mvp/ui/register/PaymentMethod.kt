@@ -1,13 +1,16 @@
 package com.devarthur4718.mvp.ui.register
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
 import androidx.databinding.DataBindingUtil
+import com.devarthur4718.mvp.BuildConfig
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityPaymentMethodBinding
+import com.devarthur4718.mvp.mock.MockedData
 import com.devarthur4718.mvp.ui.login.LoginActivity
 
 
@@ -33,6 +36,12 @@ class PaymentMethod : AppCompatActivity() {
         binding.imageView3.setOnClickListener {
             finish()
         }
+
+        if(BuildConfig.DEBUG){
+            binding.edtPhoneYape.setText(MockedData.PHONE_YAPE)
+        }
+
+
     }
 
     fun onItemChecked(view: View) {

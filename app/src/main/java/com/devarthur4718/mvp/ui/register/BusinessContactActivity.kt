@@ -5,10 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.devarthur4718.mvp.BuildConfig
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityBusinessContactBinding
 import com.devarthur4718.mvp.extension.clearError
 import com.devarthur4718.mvp.extension.getText
+import com.devarthur4718.mvp.extension.setText
+import com.devarthur4718.mvp.mock.MockedData
 import com.devarthur4718.mvp.repository.business.Business
 import com.devarthur4718.mvp.ui.location.MapsActivity
 
@@ -26,6 +29,16 @@ class BusinessContactActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_business_contact)
         viewmodel = ViewModelProvider(this).get(RegisterSellerViewModel::class.java)
         initViews()
+        initData()
+    }
+
+    private fun initData() {
+        if(BuildConfig.DEBUG){
+            binding.inputContactName.setText(MockedData.CONTACT_NAME)
+            binding.inputNickName.setText(MockedData.NICKNAME)
+            binding.inputBusinessName.setText(MockedData.BUSINESS_NAME)
+            binding.inputBussinessAddress.setText(MockedData.BUSINESS_ADRESS)
+        }
     }
 
     private fun initViews() {

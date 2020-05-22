@@ -62,6 +62,7 @@
     <string name="pw_not_match">pw dont match</string>
     <string name="title_activity_maps">Map</string>
     <string name="search_in_map">Search in Map</string>
+    <string name="find_my_position">find my position</string>
 
 
 </resources>
