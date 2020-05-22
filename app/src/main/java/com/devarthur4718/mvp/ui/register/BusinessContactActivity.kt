@@ -1,5 +1,6 @@
 package com.devarthur4718.mvp.ui.register
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -87,5 +88,15 @@ class BusinessContactActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            RQ_MAPS -> {
+                if(resultCode == Activity.RESULT_OK){
+                    data?.let {
+                        binding.inputBussinessAddress.setText(it?.getStringExtra(MapsActivity.SELECTED_LOCATION))
+                    }
+
+                }
+            }
+        }
     }
 }

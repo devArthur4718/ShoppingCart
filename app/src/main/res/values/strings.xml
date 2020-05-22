@@ -63,6 +63,8 @@
     <string name="title_activity_maps">Map</string>
     <string name="search_in_map">Search in Map</string>
     <string name="find_my_position">find my position</string>
+    <string name="confirm_location">Confirm Location</string>
+    <string name="search_locations">Search locations...</string>
 
 
 </resources>

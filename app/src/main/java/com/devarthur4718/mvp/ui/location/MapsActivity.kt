@@ -1,20 +1,18 @@
 package com.devarthur4718.mvp.ui.location
 
+import android.app.Activity
 import android.content.pm.PackageManager
 import android.location.Geocoder
-import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.devarthur4718.mvp.R
-import com.devarthur4718.mvp.mock.MockedData
 import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -27,6 +25,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     private lateinit var mMap: GoogleMap
+    private lateinit var gc: Geocoder
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,18 +35,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        gc = Geocoder(this)
         init()
         //TODO: we have to create a release key for MAPS api before updating it to Play Store.
 
     }
 
     private fun init() {
-        input_search.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+        input_search.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
-                if(actionId == EditorInfo.IME_ACTION_SEARCH
+                if (actionId == EditorInfo.IME_ACTION_SEARCH
                     || actionId == EditorInfo.IME_ACTION_DONE
                     || event?.action == KeyEvent.ACTION_DOWN
-                    || event?.action == KeyEvent.KEYCODE_ENTER){
+                    || event?.action == KeyEvent.KEYCODE_ENTER
+                ) {
 
                     geoLocate()
                 }
@@ -59,22 +60,33 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             getDeviceLocation()
         }
 
+        btnConfirmLocation.setOnClickListener {
+            setResult(Activity.RESULT_OK, intent.putExtra(SELECTED_LOCATION, selectedLocation))
+            finish()
+        }
+
     }
 
+    var selectedLocation = ""
     private fun geoLocate() {
 
         var search = input_search.text.toString()
+        input_search.setText("")
+        input_search.setText(search)
 
-        var gc = Geocoder(this)
+
         var address = gc.getFromLocationName(search, 1)
 
-        if(address.size > 0){
+        if (address.size > 0) {
             var currentAddress = address[0]
-            Log.d(TAG, "geolocate: found location : $address")
-//            Toast.makeText(this, "Location: $currentAddress", Toast.LENGTH_SHORT).show()
+            var title = "${address[0].thoroughfare}, ${address[0].subThoroughfare},${address[0].adminArea}"
             var location = LatLng(currentAddress.latitude, currentAddress.longitude)
-            moveCamera(location, DEFAULT_ZOOM, "")
-
+            moveCamera(
+                location,
+                DEFAULT_ZOOM,
+                "$title"
+            )
+            selectedLocation = title
         }
     }
 
@@ -84,18 +96,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         enableMyLocation()
     }
 
-    private fun isPermissionGranted() : Boolean{
-        return ContextCompat.checkSelfPermission(this,
+    private fun isPermissionGranted(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
             android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
-    private fun enableMyLocation(){
-        if(isPermissionGranted()){
+    private fun enableMyLocation() {
+        if (isPermissionGranted()) {
             mMap.isMyLocationEnabled = true
             getDeviceLocation()
 
-        }else{
+        } else {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf<String>(android.Manifest.permission.ACCESS_FINE_LOCATION),
@@ -105,22 +118,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
-    private fun moveCamera(location: LatLng, zoom : Float, title : String) {
+    private fun moveCamera(location: LatLng, zoom: Float, title: String) {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoom))
         val markerOptions = MarkerOptions()
-                                .position(location)
-                                .title(title)
+            .position(location)
+            .title(title)
+        mMap.clear()
         mMap.addMarker(markerOptions)
+
     }
 
     private fun getDeviceLocation() {
         var locationClient = LocationServices.getFusedLocationProviderClient(this)
-        locationClient.lastLocation.addOnCompleteListener {task ->
-            if(task.isSuccessful){
+        locationClient.lastLocation.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
                 var currentLocation = task.getResult()
-                var position = LatLng(currentLocation!!.latitude,currentLocation!!.longitude)
+                var position = LatLng(currentLocation!!.latitude, currentLocation!!.longitude)
+
                 moveCamera(position, DEFAULT_ZOOM, "")
-            }else{
+            } else {
                 //do something
             }
         }
@@ -132,14 +148,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if(requestCode == REQUEST_LOCATION_PERMISSION){
-            if(grantResults.size > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)){
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.size > 0 && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 enableMyLocation()
             }
         }
     }
 
-    companion object{
+    companion object {
         const val DEFAULT_ZOOM = 15F
+        const val SELECTED_LOCATION = "SELECTED_LOCATION"
     }
 }

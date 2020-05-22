@@ -17,9 +17,9 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/white_border"
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,16 +41,20 @@
         <EditText
             android:id="@+id/input_search"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:imeOptions="actionSearch"
-            android:textSize="15sp"
+            android:imeOptions="actionSearch|actionDone"
+            android:textSize="17sp"
+            android:maxLines="1"
+            tools:text="@string/search_locations"
+            android:paddingStart="16dp"
+            android:paddingEnd="0dp"
+            android:background="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivSearch"
             app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,13 +74,14 @@
     </ImageButton>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnConfirmLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:text="Button"
+        android:text="@string/confirm_location"
+        android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
