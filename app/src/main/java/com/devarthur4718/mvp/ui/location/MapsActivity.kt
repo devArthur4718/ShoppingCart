@@ -37,7 +37,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         init()
-
+        //TODO: we have to create a release key for MAPS api before updating it to Play Store.
 
     }
 
