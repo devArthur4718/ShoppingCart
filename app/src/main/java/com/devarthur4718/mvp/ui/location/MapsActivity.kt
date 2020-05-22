@@ -28,6 +28,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var gc: Geocoder
     private val TAG = MapsActivity::class.java.simpleName
     private val REQUEST_LOCATION_PERMISSION = 1
+    private var selectedLocation = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -65,16 +67,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             finish()
         }
 
+
+
     }
 
-    var selectedLocation = ""
+
     private fun geoLocate() {
 
         var search = input_search.text.toString()
         input_search.setText("")
         input_search.setText(search)
-
-
         var address = gc.getFromLocationName(search, 1)
 
         if (address.size > 0) {
@@ -134,7 +136,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             if (task.isSuccessful) {
                 var currentLocation = task.getResult()
                 var position = LatLng(currentLocation!!.latitude, currentLocation!!.longitude)
+                var address = gc.getFromLocation(currentLocation.latitude, currentLocation.longitude,1)
 
+                if (address.size > 0) {
+                    var currentAddress = address[0]
+                    var title = "${address[0].thoroughfare}, ${address[0].subThoroughfare},${address[0].adminArea}"
+                    var location = LatLng(currentAddress.latitude, currentAddress.longitude)
+                    moveCamera(
+                        location,
+                        DEFAULT_ZOOM,
+                        "$title"
+                    )
+                    selectedLocation = title
+                    input_search.setText(title)
+
+                }
                 moveCamera(position, DEFAULT_ZOOM, "")
             } else {
                 //do something
