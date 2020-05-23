@@ -1,5 +1,7 @@
 package com.devarthur4718.mvp.mock
 
+import com.devarthur4718.mvp.repository.database.entity.ProductCategory
+
 class MockedData {
 
 
@@ -16,6 +18,13 @@ class MockedData {
         const val PERU_LIMA_LAT = -12.046374
         const val PERU_LIMA_LNG = -77.042793
         const val MOCK_APP_DATA = true
+
+        val CATEGORY_PRODUCT_MOCK = listOf(
+            ProductCategory(1, "Steaks", ""),
+            ProductCategory(2, "Candy", ""),
+            ProductCategory(3, "Pizza", ""),
+            ProductCategory(4, "Hamburguer", "")
+        )
 
     }
 

@@ -27,7 +27,7 @@ class SearchProduct : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SearchProductViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
 
 }
