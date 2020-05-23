@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-
     private lateinit var mMap: GoogleMap
     private lateinit var gc: Geocoder
     private val TAG = MapsActivity::class.java.simpleName
@@ -67,10 +66,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             finish()
         }
 
-
-
     }
-
 
     private fun geoLocate() {
 

@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityRegisterBinding
 import com.devarthur4718.mvp.extension.*
-import com.devarthur4718.mvp.repository.business.Business
 import com.devarthur4718.mvp.ui.base.BaseActivity
 
 class RegisterActivity : BaseActivity() {
@@ -54,8 +53,9 @@ class RegisterActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
+
             checkInternetAndCall {
-                viewmodel.performRegisterWithEmail(
+                viewmodel.registerUser(
                     binding.inputName.editText?.text.toString(),
                     binding.inputNewEmail.editText?.text.toString(),
                     binding.inputNewPassword.editText?.text.toString()
@@ -67,12 +67,20 @@ class RegisterActivity : BaseActivity() {
 
     private fun setObservables() {
 
-        var newBussiness = Business().apply {
-            contactname = "Arthur"
-        }
-
         viewmodel.onRegisterSuccess.observe(this, Observer { onRegistrationCallback(it) })
+        viewmodel.loadingProgress.observe(this, Observer { onLoadingState(it) })
 
+    }
+
+    private fun onLoadingState(it: Boolean?) {
+        it?.let {
+            if(it){
+                onStartLoading()
+            }
+            else{
+                onStopLoading()
+            }
+        }
     }
 
     private fun onRegistrationCallback(status: Boolean?) {

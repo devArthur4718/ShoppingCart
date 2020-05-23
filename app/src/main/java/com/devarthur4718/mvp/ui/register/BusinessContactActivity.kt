@@ -44,10 +44,6 @@ class BusinessContactActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.buttonNext.setOnClickListener {
-            var data = Business().apply {
-                contactname = binding.inputContactName.getText()
-                nickname = binding.inputNickName.getText()
-            }
 
             binding.inputContactName.clearError()
             binding.inputNickName.clearError()
@@ -67,6 +63,14 @@ class BusinessContactActivity : AppCompatActivity() {
                 binding.inputBussinessAddress.editText?.setError(getString(R.string.blank_name))
                 return@setOnClickListener
             }
+
+            var data = Business().apply {
+                contactname = binding.inputContactName.getText()
+                nickname = binding.inputNickName.getText()
+                business_name = binding.inputBusinessName.getText()
+                business_address = binding.inputBussinessAddress.getText()
+            }
+
 
             viewmodel.updateBussinessData(data)
 

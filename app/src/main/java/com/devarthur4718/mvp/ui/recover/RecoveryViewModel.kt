@@ -1,7 +1,7 @@
 package com.devarthur4718.mvp.ui.recover
 
 import androidx.lifecycle.ViewModel
-import com.devarthur4718.mvp.repository.LoginRepository
+import com.devarthur4718.mvp.repository.login.LoginRepository
 
 class RecoveryViewModel : ViewModel() {
 
