@@ -43,6 +43,7 @@
         <activity
             android:name=".ui.register.RegisterActivity"
             android:parentActivityName=".ui.login.LoginActivity" />
+
         <activity android:name=".ui.Splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,6 +51,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.core.search.SearchResultsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

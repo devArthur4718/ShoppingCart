@@ -15,6 +15,7 @@ class MockedData {
         const val PHONE_YAPE = "11976671346"
         const val PERU_LIMA_LAT = -12.046374
         const val PERU_LIMA_LNG = -77.042793
+        const val MOCK_APP_DATA = true
 
     }
 

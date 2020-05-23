@@ -131,10 +131,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         locationClient.lastLocation.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 var currentLocation = task.getResult()
-                var position = LatLng(currentLocation!!.latitude, currentLocation!!.longitude)
-                var address = gc.getFromLocation(currentLocation.latitude, currentLocation.longitude,1)
 
-                if (address.size > 0) {
+                var position = currentLocation?.let { LatLng(it.latitude,it.longitude) }
+                var address = position?.let { gc.getFromLocation(position.latitude, position.longitude,1)  }
+
+                if (address?.size!! > 0) {
                     var currentAddress = address[0]
                     var title = "${address[0].thoroughfare}, ${address[0].subThoroughfare},${address[0].adminArea}"
                     var location = LatLng(currentAddress.latitude, currentAddress.longitude)
@@ -144,12 +145,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         "$title"
                     )
                     selectedLocation = title
-                    input_search.setText(title)
+//                    input_search.setText(title)
 
                 }
-                moveCamera(position, DEFAULT_ZOOM, "")
+                if (position != null) {
+                    moveCamera(position, DEFAULT_ZOOM, "")
+                }
             } else {
                 //do something
+                getDeviceLocation()
             }
         }
 
