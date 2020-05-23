@@ -37,7 +37,7 @@ class PaymentMethod : AppCompatActivity() {
             finish()
         }
 
-        if(BuildConfig.DEBUG){
+        if(BuildConfig.DEBUG && MockedData.MOCK_APP_DATA){
             binding.edtPhoneYape.setText(MockedData.PHONE_YAPE)
         }
 

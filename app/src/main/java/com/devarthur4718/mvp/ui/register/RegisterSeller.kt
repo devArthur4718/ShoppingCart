@@ -26,7 +26,7 @@ class RegisterSeller : AppCompatActivity() {
     }
 
     private fun initData() {
-        if(BuildConfig.DEBUG){
+        if(BuildConfig.DEBUG && MockedData.MOCK_APP_DATA){
             binding.inputNewEmail.setText(MockedData.EMAIL)
             binding.inputNewPassword.setText(MockedData.PW)
             binding.inputConfirmPasssword.setText(MockedData.CONFIRM_PW)

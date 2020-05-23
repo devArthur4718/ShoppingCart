@@ -34,7 +34,7 @@ class BusinessContactActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        if(BuildConfig.DEBUG){
+        if(BuildConfig.DEBUG && MockedData.MOCK_APP_DATA){
             binding.inputContactName.setText(MockedData.CONTACT_NAME)
             binding.inputNickName.setText(MockedData.NICKNAME)
             binding.inputBusinessName.setText(MockedData.BUSINESS_NAME)

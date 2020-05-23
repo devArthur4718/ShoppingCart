@@ -11,7 +11,7 @@ import com.devarthur4718.mvp.databinding.ActivityRegisterBinding
 import com.devarthur4718.mvp.extension.*
 import com.devarthur4718.mvp.ui.base.BaseActivity
 
-class RegisterActivity : BaseActivity() {
+class RegisterCustomer : BaseActivity() {
 
     //TODO : Remove Loose Coupling
     private lateinit var binding : ActivityRegisterBinding

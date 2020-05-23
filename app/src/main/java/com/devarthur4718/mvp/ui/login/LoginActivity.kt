@@ -14,7 +14,7 @@ import com.devarthur4718.mvp.extension.clearError
 import com.devarthur4718.mvp.ui.base.BaseActivity
 import com.devarthur4718.mvp.ui.core.CoreActivity
 import com.devarthur4718.mvp.ui.recover.RecoverAccountActivity
-import com.devarthur4718.mvp.ui.register.RegisterActivity
+import com.devarthur4718.mvp.ui.register.RegisterCustomer
 import com.devarthur4718.mvp.ui.register.RegisterSeller
 
 
@@ -108,7 +108,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun openRegisterActivity() {
-        val intent = Intent(this, RegisterActivity::class.java)
+        val intent = Intent(this, RegisterCustomer::class.java)
         startActivity(intent)
     }
 

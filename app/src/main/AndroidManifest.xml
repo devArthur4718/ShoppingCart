@@ -41,7 +41,7 @@
         <activity android:name=".ui.register.RegisterSeller" />
         <activity android:name=".ui.recover.RecoverAccountActivity" />
         <activity
-            android:name=".ui.register.RegisterActivity"
+            android:name=".ui.register.RegisterCustomer"
             android:parentActivityName=".ui.login.LoginActivity" />
 
         <activity android:name=".ui.Splash.SplashActivity">
