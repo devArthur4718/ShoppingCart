@@ -11,7 +11,7 @@ import com.devarthur4718.mvp.databinding.ActivityRegisterBinding
 import com.devarthur4718.mvp.extension.*
 import com.devarthur4718.mvp.ui.base.BaseActivity
 
-class RegisterActivity : BaseActivity() {
+class RegisterCustomer : BaseActivity() {
 
     //TODO : Remove Loose Coupling
     private lateinit var binding : ActivityRegisterBinding
@@ -29,11 +29,12 @@ class RegisterActivity : BaseActivity() {
         binding.ivCloseRegistration.setOnClickListener { finish() }
 
         binding.btnRegister.setOnClickListener {
-            //Todo validate fields
+
             binding.inputName.editText?.clearError()
             binding.inputNewEmail.editText?.clearError()
             binding.inputNewPassword.editText?.clearError()
 
+            //TODO : move validation to the view model
             if(binding.inputName.editText!!.isNullOrEmpty()){
                 binding.inputName.editText?.setError(getString(R.string.blank_name))
                 return@setOnClickListener
@@ -52,8 +53,9 @@ class RegisterActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
+
             checkInternetAndCall {
-                viewmodel.performRegisterWithEmail(
+                viewmodel.registerUser(
                     binding.inputName.editText?.text.toString(),
                     binding.inputNewEmail.editText?.text.toString(),
                     binding.inputNewPassword.editText?.text.toString()
@@ -64,8 +66,21 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun setObservables() {
-        viewmodel.onRegisterSuccess.observe(this, Observer { onRegistrationCallback(it) })
 
+        viewmodel.onRegisterSuccess.observe(this, Observer { onRegistrationCallback(it) })
+        viewmodel.loadingProgress.observe(this, Observer { onLoadingState(it) })
+
+    }
+
+    private fun onLoadingState(it: Boolean?) {
+        it?.let {
+            if(it){
+                onStartLoading()
+            }
+            else{
+                onStopLoading()
+            }
+        }
     }
 
     private fun onRegistrationCallback(status: Boolean?) {

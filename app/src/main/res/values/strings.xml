@@ -12,11 +12,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_search_products">Search Products</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-
     <string name="home_second">Home Second</string>
     <string name="title_activity_core_nav">CoreNav</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -40,4 +38,33 @@
     <string name="reset_password_details">You will receive password reset details in your email</string>
     <string name="send">Send</string>
     <string name="recovery_detail_sent">Sent to registered email</string>
+    <string name="buyer">Buyer </string>
+    <string name="hint_create">Please, select the type of account that you want to create.</string>
+    <string name="title_create">Create new account</string>
+    <string name="buyer_text">Buyer</string>
+    <string name="seller_text">Seller</string>
+    <string name="create_a_new_seller_account">Create a new seller account</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="step_1_of_3">Step 1 of 3</string>
+    <string name="next">Next</string>
+    <string name="business_contact">Business contact</string>
+    <string name="step_2_of_3">Step 2 of 3</string>
+    <string name="close_screen" translatable="false">close screen</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="nickname">Nickname</string>
+    <string name="business_name">Bussiness Name</string>
+    <string name="business_address">Bussiness Adrress</string>
+    <string name="step_3_of_3">Step 3 of 3</string>
+    <string name="phone">Phone</string>
+    <string name="yape" translatable="false">Yape</string>
+    <string name="finish">Finish</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="pw_not_match">pw dont match</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="search_in_map">Search in Map</string>
+    <string name="find_my_position">find my position</string>
+    <string name="confirm_location">Confirm Location</string>
+    <string name="search_locations">Search locations...</string>
+
+
 </resources>

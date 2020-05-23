@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.afollestad.materialdialogs.MaterialDialog
 import com.devarthur4718.mvp.BuildConfig
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.LoginActivityBinding
@@ -13,7 +14,8 @@ import com.devarthur4718.mvp.extension.clearError
 import com.devarthur4718.mvp.ui.base.BaseActivity
 import com.devarthur4718.mvp.ui.core.CoreActivity
 import com.devarthur4718.mvp.ui.recover.RecoverAccountActivity
-import com.devarthur4718.mvp.ui.register.RegisterActivity
+import com.devarthur4718.mvp.ui.register.RegisterCustomer
+import com.devarthur4718.mvp.ui.register.RegisterSeller
 
 
 class LoginActivity : BaseActivity() {
@@ -84,7 +86,29 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun navigateToCreateAccount() {
-        val intent = Intent(this, RegisterActivity::class.java)
+        MaterialDialog(this).show {
+            title(text = getString(R.string.title_create))
+            message(text = getString(R.string.hint_create))
+            positiveButton(text = getString(R.string.buyer_text))
+            negativeButton(text = getString(R.string.seller_text))
+            positiveButton {
+                //Open Buyer text
+                openRegisterActivity()
+            }
+            negativeButton {
+                //Open Seller text.
+                openSellerActivity()
+            }
+        }
+    }
+
+    private fun openSellerActivity() {
+        val intent = Intent(this, RegisterSeller::class.java)
+        startActivity(intent)
+    }
+
+    private fun openRegisterActivity() {
+        val intent = Intent(this, RegisterCustomer::class.java)
         startActivity(intent)
     }
 

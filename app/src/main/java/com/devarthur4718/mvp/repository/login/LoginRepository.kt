@@ -1,4 +1,4 @@
-package com.devarthur4718.mvp.repository
+package com.devarthur4718.mvp.repository.login
 
 import android.util.Log
 import com.google.android.gms.tasks.Task

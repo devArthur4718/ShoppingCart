@@ -2,6 +2,7 @@ package com.devarthur4718.mvp.extension
 
 import android.util.Patterns
 import android.widget.EditText
+import com.google.android.material.textfield.TextInputLayout
 
 
 fun EditText.clearError() {
@@ -27,6 +28,22 @@ fun EditText.isPasswordValid() : Boolean {
 fun EditText.isUFValid() : Boolean {
     return if (this.text.length < 2) false else true
 }
+
+fun TextInputLayout.setText(text : String) {
+    this.editText?.setText(text)
+}
+
+fun TextInputLayout.getText() : String {
+    return this.editText?.text.toString()
+}
+
+fun TextInputLayout.clearError()  {
+   this.editText?.setError(null)
+}
+
+
+
+
 
 //fun EditText.isPostalCodeValid() : Boolean {
 //    return if (Mask.removeMask(this.text.toString()).length < 8) false else true
