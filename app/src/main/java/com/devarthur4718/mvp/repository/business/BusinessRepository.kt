@@ -1,6 +1,7 @@
 package com.devarthur4718.mvp.repository.business
 
 import androidx.lifecycle.LiveData
+import com.devarthur4718.mvp.repository.database.entity.Business
 
 class BusinessRepository(private val businessDao : BussinessDAO) {
 

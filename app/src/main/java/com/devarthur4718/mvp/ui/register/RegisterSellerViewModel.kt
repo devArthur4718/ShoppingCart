@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.devarthur4718.mvp.repository.business.Business
+import com.devarthur4718.mvp.repository.database.entity.Business
 import com.devarthur4718.mvp.repository.business.BusinessRepository
 import com.devarthur4718.mvp.repository.database.ApplicationDatabase
 import kotlinx.coroutines.Dispatchers

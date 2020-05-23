@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.devarthur4718.mvp.repository.business.Customer
+import com.devarthur4718.mvp.repository.database.entity.Customer
 import com.devarthur4718.mvp.repository.firestore.FirestoreRepository
 import com.devarthur4718.mvp.repository.login.LoginRepository
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
@@ -26,7 +26,8 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     fun registerUser(username : String, email : String, pw : String){
         _loadingProgress.value = true
 
-        var customer = Customer().apply {
+        var customer = Customer()
+            .apply {
             this.email = email
             this.contactname = username
             this.nickname = nickname

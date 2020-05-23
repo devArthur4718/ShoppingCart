@@ -10,7 +10,7 @@ import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.ActivityRegisterSellerBinding
 import com.devarthur4718.mvp.extension.*
 import com.devarthur4718.mvp.mock.MockedData
-import com.devarthur4718.mvp.repository.business.Business
+import com.devarthur4718.mvp.repository.database.entity.Business
 
 class RegisterSeller : AppCompatActivity() {
 
@@ -46,7 +46,8 @@ class RegisterSeller : AppCompatActivity() {
     }
 
     private fun saveFormData() {
-        var bussiness = Business().apply {
+        var bussiness = Business()
+            .apply {
             email = binding.inputNewEmail.editText?.text.toString()
         }
 

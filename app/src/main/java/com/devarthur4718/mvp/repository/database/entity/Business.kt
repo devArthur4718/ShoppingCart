@@ -1,4 +1,4 @@
-package com.devarthur4718.mvp.repository.business
+package com.devarthur4718.mvp.repository.database.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,5 +15,6 @@ data class Business(
     var yapePhone : String? = null
 ){
     @PrimaryKey(autoGenerate = false)
-    var id : Int = CURRENT_BUSSINESS_ID
+    var id : Int =
+        CURRENT_BUSSINESS_ID
 }

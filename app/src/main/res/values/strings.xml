@@ -65,6 +65,7 @@
     <string name="find_my_position">find my position</string>
     <string name="confirm_location">Confirm Location</string>
     <string name="search_locations">Search locations...</string>
+    <string name="mocked_steak">Steaks</string>
 
 
 </resources>

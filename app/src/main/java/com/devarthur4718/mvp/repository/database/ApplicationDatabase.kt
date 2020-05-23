@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.devarthur4718.mvp.repository.business.Business
+import com.devarthur4718.mvp.repository.database.entity.Business
 import com.devarthur4718.mvp.repository.business.BussinessDAO
+import com.devarthur4718.mvp.repository.database.entity.Customer
 
 @Database(
-    entities = [Business::class],
+    entities = arrayOf(Business::class, Customer::class),
     version = 1,
     exportSchema = false
 )

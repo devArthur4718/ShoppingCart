@@ -5,6 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.devarthur4718.mvp.repository.database.entity.Business
+import com.devarthur4718.mvp.repository.database.entity.CURRENT_BUSSINESS_ID
 
 
 @Dao

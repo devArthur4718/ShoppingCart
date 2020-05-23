@@ -11,6 +11,7 @@ import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.LoginActivityBinding
 import com.devarthur4718.mvp.extension.checkInternetAndCall
 import com.devarthur4718.mvp.extension.clearError
+import com.devarthur4718.mvp.mock.MockedData
 import com.devarthur4718.mvp.ui.base.BaseActivity
 import com.devarthur4718.mvp.ui.core.CoreActivity
 import com.devarthur4718.mvp.ui.recover.RecoverAccountActivity
@@ -32,7 +33,7 @@ class LoginActivity : BaseActivity() {
         initViews()
         setObservables()
 
-        if(BuildConfig.DEBUG){
+        if(BuildConfig.DEBUG && MockedData.MOCK_APP_DATA){
             binding.inputUsername.editText?.setText("android@gmail.com")
             binding.inputPassword.editText?.setText("12345678")
         }

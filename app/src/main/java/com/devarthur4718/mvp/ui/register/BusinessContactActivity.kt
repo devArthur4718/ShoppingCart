@@ -13,7 +13,7 @@ import com.devarthur4718.mvp.extension.clearError
 import com.devarthur4718.mvp.extension.getText
 import com.devarthur4718.mvp.extension.setText
 import com.devarthur4718.mvp.mock.MockedData
-import com.devarthur4718.mvp.repository.business.Business
+import com.devarthur4718.mvp.repository.database.entity.Business
 import com.devarthur4718.mvp.ui.location.MapsActivity
 
 class BusinessContactActivity : AppCompatActivity() {
@@ -64,7 +64,8 @@ class BusinessContactActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            var data = Business().apply {
+            var data = Business()
+                .apply {
                 contactname = binding.inputContactName.getText()
                 nickname = binding.inputNickName.getText()
                 business_name = binding.inputBusinessName.getText()
