@@ -11,9 +11,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.devarthur4718.mvp.R
 import com.devarthur4718.mvp.databinding.FragmentHomeBinding
 import com.devarthur4718.mvp.repository.database.entity.ProductCategory
+import com.devarthur4718.mvp.ui.base.BaseFragment
 import com.devarthur4718.mvp.ui.recyclerview.CategoryAdapter
 
-class SearchProductFragment : Fragment() {
+class SearchProductFragment : BaseFragment() {
 
     private lateinit var viewModel: SearchProductViewModel
     private lateinit var binding : FragmentHomeBinding
@@ -50,6 +51,11 @@ class SearchProductFragment : Fragment() {
 
     private fun setObservables() {
         viewModel.listCategory.observe(viewLifecycleOwner, Observer { onProductListReceived(it)  })
+        mainViewModel.searchQuerry.observe(viewLifecycleOwner, Observer { onSearchQuerryReceived(it) })
+    }
+
+    private fun onSearchQuerryReceived(querry: String?) {
+        querry?.let { viewModel.searchCategories(it) }
     }
 
     private fun onProductListReceived(data: List<ProductCategory>) {

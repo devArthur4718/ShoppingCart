@@ -1,10 +1,12 @@
 package com.devarthur4718.mvp.ui.core
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.devarthur4718.mvp.R
+import com.devarthur4718.mvp.extension.hideKeyBoard
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -27,6 +30,8 @@ class CoreActivity : AppCompatActivity() {
         setContentView(R.layout.activity_core_nav)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        corevm = ViewModelProvider(this)[CoreViewModel::class.java]
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -56,11 +61,11 @@ class CoreActivity : AppCompatActivity() {
 
         var search = menu.findItem(R.id.search).actionView as androidx.appcompat.widget.SearchView
 
-
         search.setOnQueryTextListener(object  :androidx.appcompat.widget.SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 navController.navigate(R.id.nav_products)
-                //TODO filter recicler view
+                corevm.filterProductList(query)
+                hideKeyBoard(search)
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {

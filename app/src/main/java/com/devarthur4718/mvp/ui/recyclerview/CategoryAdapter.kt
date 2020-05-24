@@ -28,7 +28,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int  = data.size
 
-    override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item : ProductCategory = data[position]
         holder.bind(item)
     }
@@ -42,8 +42,8 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
                 try{
                     //Apply storage image into image view
-                    if(!item.imgUrl.isNullOrEmpty()){
-                        val gsReferencePhoto = storage.getReferenceFromUrl(item.imgUrl)
+                    if(!item.imgurl.isNullOrEmpty()){
+                        val gsReferencePhoto = storage.getReferenceFromUrl(item.imgurl)
                         GlideApp.with(itemView.context)
                             .asDrawable()
                             .load(gsReferencePhoto)

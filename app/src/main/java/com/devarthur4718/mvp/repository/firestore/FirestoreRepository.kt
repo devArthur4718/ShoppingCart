@@ -14,6 +14,7 @@ class FirestoreRepository {
     companion object{
         const val DOCUMENT_USERS = "users"
         const val PRODUCTS_CATEGORY = "products-category"
+        const val CATEGORY_FIELD = "category"
     }
 
     //region User
@@ -23,6 +24,10 @@ class FirestoreRepository {
     }
 
     fun fetchCategories(): Query {
-        return db.collection(PRODUCTS_CATEGORY).orderBy("category", Query.Direction.DESCENDING)
+        return db.collection(PRODUCTS_CATEGORY).orderBy(CATEGORY_FIELD, Query.Direction.DESCENDING)
+    }
+
+    fun searchCategories(value : String): Query {
+        return db.collection(PRODUCTS_CATEGORY).whereGreaterThanOrEqualTo(CATEGORY_FIELD, value)
     }
 }

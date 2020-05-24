@@ -8,6 +8,6 @@ data class ProductCategory(
     @PrimaryKey(autoGenerate = true)
     var id : Int? = null,
     var category : String? = null,
-    var imgUrl : String = ""
+    var imgurl : String = ""
 
 )

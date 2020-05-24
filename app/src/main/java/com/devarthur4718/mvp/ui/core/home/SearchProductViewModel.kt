@@ -18,30 +18,49 @@ class SearchProductViewModel : ViewModel() {
 
 
     fun getCategories(){
-        if(MockedData.MOCK_FIREBASE){
-            _listCategory.value = MockedData.CATEGORY_PRODUCT_MOCK
-        }else{
-            //Fetch from firebase
-            db.fetchCategories().addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                if (firebaseFirestoreException != null) {
-                    Log.w("products", "Listen failed.", firebaseFirestoreException)
-                    return@addSnapshotListener
-                }
+        db.fetchCategories().addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+            if (firebaseFirestoreException != null) {
+                Log.w("products", "Listen failed.", firebaseFirestoreException)
+                return@addSnapshotListener
+            }
 
-                if(querySnapshot != null){
-                    var querryList = ArrayList<ProductCategory>()
-                    for(doc in querySnapshot!!){
-                        try {
-                            var item = doc.toObject(ProductCategory::class.java)
-                            querryList.add(item)
+            if(querySnapshot != null){
+                var querryList = ArrayList<ProductCategory>()
+                for(doc in querySnapshot!!){
+                    try {
+                        var item = doc.toObject(ProductCategory::class.java)
+                        querryList.add(item)
 
-                        }catch (e : RuntimeException){
-                            Log.e("Explore", "Error ${e}")
-                        }
+                    }catch (e : RuntimeException){
+                        Log.e("Explore", "Error ${e}")
                     }
-                    _listCategory.value = querryList
-
                 }
+                _listCategory.value = querryList
+
+            }
+        }
+    }
+
+    fun searchCategories(querry : String){
+        db.searchCategories(querry).addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+            if (firebaseFirestoreException != null) {
+                Log.w("products", "Listen failed.", firebaseFirestoreException)
+                return@addSnapshotListener
+            }
+
+            if(querySnapshot != null){
+                var querryList = ArrayList<ProductCategory>()
+                for(doc in querySnapshot!!){
+                    try {
+                        var item = doc.toObject(ProductCategory::class.java)
+                        querryList.add(item)
+
+                    }catch (e : RuntimeException){
+                        Log.e("Explore", "Error ${e}")
+                    }
+                }
+                _listCategory.value = querryList
+
             }
         }
     }
