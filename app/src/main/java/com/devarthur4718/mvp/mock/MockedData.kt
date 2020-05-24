@@ -18,6 +18,7 @@ class MockedData {
         const val PERU_LIMA_LAT = -12.046374
         const val PERU_LIMA_LNG = -77.042793
         const val MOCK_APP_DATA = true
+        const val MOCK_FIREBASE = false
 
         val CATEGORY_PRODUCT_MOCK = listOf(
             ProductCategory(1, "Steaks", ""),
